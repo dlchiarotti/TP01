@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Login</title>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+			  integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+	<body>
+
+		<div class="container">
+			<h2><i class="fa fa-sign-in" aria-hidden="true"></i> Login</h2>
+
+
+			<form action="PHP/function_connexion.php" method="POST">
+				<div class="input">
+					<label for ="identifiant">Nom d'utilisateur : </label>
+					<input type="text" name="identifiant" id="identifiant" placeholder="Entrez nom d'utilisateur" required /><br>
+				</div>
+
+				<div class="input">
+					<label for ="password">Mot de passe : </label>
+					<input type="password" name="password" id="password" placeholder="Entrez Votre mot de passe" required /><br>
+				</div>
+
+				<div>
+					<input type="submit" name="submit" value="Connection">
+				</div>
+
+			</form>
+		</div>
+
+		<script type="application/javascript" src="JS/Ajax.js"></script>
+	</body>
+</html>
