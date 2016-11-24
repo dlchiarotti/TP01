@@ -1,0 +1,138 @@
+body {
+    background-color: #1B1B1B;
+}
+
+.container {
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 800px;
+    text-align: center;
+    background-color: #D1D1D1;
+    box-shadow: 1px 1px 1px #000 ;
+}
+
+.container a {
+    text-decoration: none;
+    color: #1B1B1B;
+}
+
+.container h2 {
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: #1B1B1B;
+}
+
+.container .search {
+    width: 95%;
+    padding: 10px 20px;
+    text-align: center;
+    border: 2px solid #1B1B1B;
+    letter-spacing: 1px;
+ }
+
+.container .global-box {
+    margin-bottom: 0;
+}
+
+.container div {
+    padding: 10px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.container div form {
+    width : 100%;
+}
+
+.container .input {
+    width: 500px;
+    text-align: right;
+}
+
+.container .input_2 {
+    width: 490px;
+    text-align: right;
+}
+
+.container div input {
+    padding: 5px 10px;
+    border: 1px solid #000;
+}
+
+.container div input[type="submit"] {
+    width: 100px;
+}
+
+.container div input[type="hover"] {
+    background-color: #efc62c;
+    color: #1B1B1B;
+}
+.container div input::-webkit-input-placeholder {
+    color: #1B1B1B;
+}
+
+.container div input:hover,
+.container .button:hover {
+    border : 1px solid #ff0000 !important;
+}
+
+.container .button {
+    border: 1px solid #000;
+    padding: 6px 10px;
+    font: 13.3333px Arial;
+    -webkit-appearance: push-button;
+    -webkit-user-select: none;
+    white-space: pre;
+}
+
+.container .box-link {
+    display: table-cell;
+    width: 500px;
+    padding: 10px 5px;
+    border:2px solid #1B1B1B;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.container .box-link a {
+    text-decoration: none;
+    color: #1B1B1B;
+    letter-spacing: 2px;
+}
+
+.container .box-link a i {
+    display: block;
+}
+
+.container .box-link .hr {
+    display: block;
+    width: 25%;
+    height: 0;
+    padding: 0;
+    color: #f5f5f5;
+    -webkit-margin-before: 0.5em;
+    -webkit-margin-after: 0.5em;
+    -webkit-margin-start: auto;
+    -webkit-margin-end: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+.container .box-link:hover,
+.container .search:hover{
+    background-color: #fff;
+    font-weight : bold;
+    text-align : center;
+}
+
+.container select {
+    padding: 5px 10px;
+}
+
+.container .warning {
+    color: red;
+    font-weight : bold;
+    letter-spacing : 2px;
+}
