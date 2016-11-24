@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Carnet d'adresse</title>
+		<link rel="stylesheet" href="../CSS/TPstyle.css" type="text/css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+
+	<body>		
+		<div class="container">
+
+			<a href="../PHP/redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+
+			<h2><i class="fa fa-search" aria-hidden="true"></i> Rechercher une fiche employée !</h2>
+
+			<form action="../PHP/function_sheetEmployee.php" method="POST">
+				<label for="type">Sélectionner le compte : </label>
+				<select name="type" id="type" onclick="searchContact()">[[compte]]</select>
+				<br><br>
+
+				<div id="result" class="result"></div>
+			
+				<a class="button" href="../PHP/redirection.php?search=home">Annuler</a>
+			</form>
+		</div>
+		
+	<script>
+
+		function searchContact() {
+			var xhttp = new XMLHttpRequest();
+			var mySearch = document.getElementById("type").value;
+
+			if (mySearch.length == 0) {
+				document.getElementById("result").innerHTML = "";
+				document.getElementById("result").style.display = "none";
+				return;
+			}
+
+			xhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+     			document.getElementById("result").innerHTML = this.responseText;
+     			document.getElementById("result").style.display = "block";
+    		}
+ 		};
+ 				xhttp.open("POST", "../PHP/function_displaySheet.php", true);
+ 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  				xhttp.send('type='+mySearch);
+		}
+
+	</script>
+		
+	</body>
+</html>

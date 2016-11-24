@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Suppession de contact</title>
+		<meta charset = "UTF-8" >
+		<link rel="stylesheet" href="../CSS/style.css" type="text/css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+	<body>
+		
+		<div class="container">
+			<a href="../PHP/redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+			
+			<h2><i class="fa fa-trash" aria-hidden="true"></i> Supprimer un contact</h2>	
+			
+			<div class="input">
+	           <label for="nom">Nom : </label>
+	           <input type="text" id="nom" name="nom" placeholder="Entrez le nom" required />
+	        </div>
+		
+		     <div class="input">
+		           <label for="prenom">Prénom : </label>
+		           <input type="text" id="prenom" name="prenom" placeholder="Entrez le prénom" required />
+		     </div>
+				
+			  <div class="input_2">
+		  		  <a class = "button" href ="../PHP/redirection.php?search=home">ANNULER</a>
+				  <input type="button" name="btn" value="VALIDER" onclick="deleteAjax()">			
+			  </div>			
+				
+			<br>
+			<div id="result" class="warning"></div>		
+			
+		</div>		
+		
+		
+		
+		<script>
+		
+			function deleteAjax() {
+				var nom = document.getElementById("nom").value;
+				var prenom = document.getElementById("prenom").value;
+				
+				var xhttp = new XMLHttpRequest();
+				
+				xhttp.onreadystatechange = function() {
+	    			if (this.readyState == 4 && this.status == 200) {
+	    				document.getElementById("result").innerHTML = this.responseText;
+	    				document.getElementById("nom").value = "";
+	    				document.getElementById("prenom").value = "";
+					}
+				};
+				xhttp.open("POST", "../PHP/function_deleteContact.php", true);
+ 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  				xhttp.send("nom="+nom+"&prenom="+prenom);
+			}
+		</script>		
+		
+	</body>
+</html> 

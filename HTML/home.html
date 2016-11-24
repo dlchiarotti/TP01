@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang=fr>
+
+    <head>
+        <meta charset = "UTF-8">
+        <title >Accueil</title>
+        <link rel="stylesheet" href="../CSS/style.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+              integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    </head>
+
+    <body>
+
+        <div class="container">
+             <h2 class="global-box"><i class="fa fa-home" aria-hidden="true"></i> Accueil </h2>
+
+             <div class="search">
+                <a href="redirection.php?search=search_contact"><i class="fa fa-search" aria-hidden="true"></i> Rechercher une fiche</a>
+             </div>
+
+             <div class="box-link">
+                <a href="redirection.php?search=add_contact"><i class="fa fa-address-card-o" aria-hidden="true"></i><span class="hr"></span> Ajouter une fiche</a>
+            </div>
+
+            <div class="box-link">
+                <a href="redirection.php?search=modify_contact"><i class="fa fa-wrench" aria-hidden="true"></i><span class="hr"></span> Modifier une fiche</a>
+            </div>
+
+            <div class="box-link">
+                <a href="redirection.php?search=delete_contact"><i class="fa fa-trash" aria-hidden="true"></i><span class="hr"></span> Supprimer une fiche</a>
+            </div>
+
+            <div class="search">
+                <a href="redirection.php?search=search_employee"><i class="fa fa-search" aria-hidden="true"></i> Rechercher une fiche personnelle</a>
+            </div>
+
+
+            [[addAccount]]            
+            [[modifyAccount]]
+            [[deleteAccount]]
+
+        </div>
+
+    </body>
+</html>

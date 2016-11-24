@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Ajouter un compte</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div class="container">
+			
+			<a href="../PHP/redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+			
+			<h2><i class="fa fa-user-plus" aria-hidden="true"></i> Ajouter un compte</h2>
+
+			<div class="input">
+				<label for="Fiche">Nom du login : </label>
+				<input type="text" id="nom" name="nom" placeholder="Entrer le login" required />
+			</div>
+
+			<div class="input">
+				<label for="Confirmation">Mot de passe  : </label>
+				<input type="password" id="pass" name="pass" placeholder="Entrer le mot de passe" required />
+			</div>
+
+			<div class="input">
+				<label for="Confirmation">Confirmation du mot de passe  : </label>
+				<input type="password" id="confirmPass" name="confirmPass" placeholder="Entrer le mot de passe" required />
+			</div>
+
+			<div class="input">
+				<label for="pays">Sélectionner le status : </label>
+				<select name="type" id="type">
+					<option value="admin" Selected>Admin</option>
+					<option value="employe">Employé</option>
+				</select>
+			</div>
+
+			<div class="input">
+				<a class="button" href="../PHP/redirection.php?search=home"">Annuler</a>
+				<input type="button" name="add" value="Valider" onclick="addAccountAjax()">
+			</div>
+			<br>
+			<div id="result" class="warning"></div>
+		</div>
+		
+		
+		
+		<script>
+		
+			function addAccountAjax() {
+				
+				var nom = document.getElementById("nom").value;
+				var pass = document.getElementById("pass").value;
+				var confirmPass = document.getElementById("confirmPass").value;
+				var type_account = document.getElementById("type").value;				
+				
+				var xhttp = new XMLHttpRequest();
+				
+ 				xhttp.onreadystatechange = function() {
+	    			if (this.readyState == 4 && this.status == 200) {
+	    				document.getElementById("result").innerHTML = this.responseText;
+						document.getElementById("nom").value = "";
+						document.getElementById("pass").value = "";
+						document.getElementById("confirmPass").value = "";	
+			    	}				
+	 			};
+	 			
+ 				xhttp.open("POST", "../PHP/function_addAccount.php", true);
+ 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  				xhttp.send("nom="+nom+"&pass="+pass+"&confirmPass="+confirmPass+"&type="+type_account);
+			}											
+					
+		</script>		
+		
+	</body>
+</html>

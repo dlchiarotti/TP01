@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Mes fiches</title>
+		<link rel="stylesheet" href="../CSS/TPstyle.css" type="text/css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+	<body>
+		
+		<div class="container">
+			<a href="../PHP/redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+			<h2><i class="fa fa-search" aria-hidden="true"> Rechercher un contact : </i></h2>
+			<input id="search" name="search" type="text" onkeyup="searchContact()" placeholder="Tapez un nom">
+				
+				<br><br>
+				
+				<div id="result" class="result"></div>
+
+		</div>
+		
+	<script>
+		
+		function searchContact() {
+			var xhttp = new XMLHttpRequest();
+			var mySearch = document.getElementById("search").value;
+
+			if (mySearch.length == 0) {
+				document.getElementById("result").innerHTML = "Pas de contact";
+				document.getElementById("result").style.display = "none";
+				return;
+			}	
+			
+			xhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+     			document.getElementById("result").innerHTML = this.responseText;
+     			
+				if (this.responseText == "") {
+					document.getElementById("result").style.display = "none";
+				}  else {   			
+     			
+     			document.getElementById("result").style.display = "block";
+     			}
+    		}
+ 		};
+ 				xhttp.open("POST", "../PHP/function_searchContact.php", true);
+ 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  				xhttp.send('search='+mySearch);
+		}			
+		
+	</script>		
+		
+	</body>
+</html>

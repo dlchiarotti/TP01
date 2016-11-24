@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Supprimer un compte</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div class="container">
+
+			<a href="../PHP/redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+
+			<h2><i class="fa fa-trash" aria-hidden="true"></i> Supprimer un compte</h2>
+
+			<form action="../PHP/function_deleteAccount.php" method="POST">
+				<label for="type">Sélectionner le compte : </label>
+				<select name="type" id="type">[[compte]]</select>
+			</form>
+		
+			<div>
+				<a class="button" href="../PHP/redirection.php?search=home">Annuler</a>
+				<input type="submit" id="subBtn" name='subBtn' value="Valider" onclick="deleteAccount()">			
+			</div>
+			
+			<div id="result" class="warning"></div>			
+					
+		</div>
+		<script>
+		
+			function deleteAccount() {
+
+				var deleteAccount = document.getElementById("type").value;
+				
+				var xhttp = new XMLHttpRequest();			
+				
+				xhttp.onreadystatechange = function() {
+	    			if (this.readyState == 4 && this.status == 200) {
+	     				document.getElementById("result").innerHTML = this.responseText;
+	    			}
+	 			};
+	 				xhttp.open("POST", "../PHP/function_deleteAccount.php", true);
+	 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	  				xhttp.send('type='+deleteAccount);
+			}					
+		
+		</script>				
+		
+	</body>
+</html>

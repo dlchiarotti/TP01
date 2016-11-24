@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<title>Modifier un compte</title>
+		<link rel="stylesheet" type="text/css" href="../CSS/style.css">
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	</head>
+	<body>
+		
+			<div class="container">
+			
+				<a href="redirection.php?search=home"><i class="fa fa-home" aria-hidden="true"></i> Retourner à l'accueil</a>
+			
+				<h2><i class="fa fa-wrench" aria-hidden="true"></i> Modifier un compte</h2>
+				
+				<form action="function_select_modifyAccount.php" method="POST">
+					<label for="user">Modifier le compte : </label>
+					<select name="user" id="user">[[compte]]</select>
+					<br>
+				</form>
+
+				<div class="input">
+					<label for="pays">Sélectionner le status : </label>
+					<select name="type" id="type">
+						<option value="admin" Selected>Admin</option>
+						<option value="employe">Employé</option>
+					</select>
+				</div>
+			
+				<div>
+					<a class="button" href="../PHP/redirection.php?search=home">Annuler</a>
+					<input type="button" name="add" value="Valider" onclick="updateAccountAjax()">
+				</div>
+				<br>
+
+				<div id="result" class="warning"></div>		
+			</div>
+
+		
+			
+		<script>
+		
+				function updateAccountAjax() {
+				
+				var user = document.getElementById("user").value;
+				var type_account = document.getElementById("type").value;				
+				
+				var xhttp = new XMLHttpRequest();
+				
+ 				xhttp.onreadystatechange = function() {
+	    			if (this.readyState == 4 && this.status == 200) {
+	    				
+	    				document.getElementById("result").innerHTML = this.responseText;
+						document.getElementById("user").value = "";
+			    	}				
+	 			};
+	 			
+ 				xhttp.open("POST", "../PHP/function_modifyAccount.php", true);
+ 				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  				xhttp.send("user="+user+"&type="+type_account);
+			}											
+		
+		</script>			
+			
+	</body>
+</html>
