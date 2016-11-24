@@ -1,0 +1,92 @@
+body {
+    background-color: #1B1B1B;
+}
+.container {
+    padding: 10px 0;
+    margin: 0 auto;
+    width: 800px;
+    background-color: #D1D1D1;
+    box-shadow: 1px 1px 1px #000 ;
+    text-align: center;
+
+}
+
+.container input {
+    padding : 5px 10px;
+}
+
+.container h2 {
+    padding: 10px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #fff;
+    background-color: #1B1B1B;
+}
+
+.container div {
+    padding: 10px 20px;
+    text-align: left;
+    width: 50%;
+    margin: 10px auto;
+    border: 1px solid;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.6);
+    background-color: #fff;
+}
+
+.container .result {
+    display : none;
+}
+
+.container div input {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+.container select {
+    padding: 5px 10px;
+}
+
+.container .button {
+    border: 1px solid #000 !important;
+    padding: 6px 10px;
+    font: 13.3333px Arial;
+    -webkit-appearance: push-button;
+    -webkit-user-select: none;
+    white-space: pre;
+ }
+
+.container .button:hover {
+    border : 1px solid #ff0000;
+}
+
+.container div input[type="submit"] {
+    width: 310px;
+}
+
+.container div input[type="hover"] {
+    background-color: #efc62c;
+    color: #1B1B1B;
+}
+.container div input::-webkit-input-placeholder {
+    color: #1B1B1B;
+}
+
+.container div input:hover {
+    border : 1px solid #ff0000;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.update {
+    background-color: #fff;
+}
+
+.warning {;
+    color: red;
+    text-align: center;
+    padding: 10px 20px;
+}
